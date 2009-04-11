@@ -2,7 +2,7 @@
 /**
  * Makes it possible to fix wrong encoding object in xml response from the server
  * http://pear.php.net/bugs/bug.php?id=12249
- * 
+ *
  * PHP Version 4 and 5
  *
  * @category Patches
@@ -15,7 +15,7 @@
 /**
  * Makes it possible to fix wrong encoding object in xml response from the server
  * http://pear.php.net/bugs/bug.php?id=12249
- * 
+ *
  * PHP Version 4 and 5
  *
  * @category Patches
@@ -26,16 +26,15 @@
  */
 class XML_RPC2_ServerFixedEncodingObject extends XML_RPC2_Server
 {
-
     /**
      * Factory method to select a backend and return a new XML_RPC2_Server based on the backend
      *
-     * @param mixed $callTarget either a class name or an object instance. 
+     * @param mixed $callTarget either a class name or an object instance.
      * @param array associative array of options
      * @return object a server class instance
      */
     public static function create($callTarget, $options = array())
-    {        
+    {
         if (isset($options['backend'])) {
             XML_RPC2_Backend::setBackend($options['backend']);
         }
@@ -59,7 +58,7 @@ class XML_RPC2_ServerFixedEncodingObject extends XML_RPC2_Server
         }
         return new $backend($callHandler, $options);
     }
-    
+
     public function handleCall() {
         throw new Exception('XML_RPC2_ServerFixedEncodingObject::handleCall should be extended');
     }
